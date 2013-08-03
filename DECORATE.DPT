@@ -1,0 +1,21 @@
+//------------------------------------
+// DPT DECORATE FILE, VER 1.03
+//------------------------------------
+// Programming Language: DECORATE
+//------------------------------------
+/*
+All content fully free, but the distribution of all content is under DartPower's License Free Information v4.1
+			For advice about the license, please write to the author to http://vk.com/dartpower
+					We accept no liability for legal persons, we hate "Corporations".
+*/
+//------------------------------------
+//Common
+#include "actors/global.dpt"
+//Classes
+#include "actors/classes/fighter.dpt"
+#include "actors/classes/engineer.dpt"
+#include "actors/classes/medic.dpt"
+//Monsters
+#include "actors/monsters.dpt"
+//Other
+#include "actors/other.dpt"

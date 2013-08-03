@@ -1,0 +1,3083 @@
+
+// Individual Bits and Pieces
+actor GIB1
+{
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -NOTELEPORT
+    -SOLID
+	-TELESTOMP
+    Radius 2
+    Damage 0
+    Decal BloodSplat
+    bouncefactor 0.4
+    SeeSound "gibbage/xgib"
+    Speed 5
+	renderstyle translucent
+	alpha 1.0
+    States
+    {
+    Spawn:
+        GIB1 A 0
+        GIB1 A 0 A_Jump(64,"Alt") 
+        GIB1 A 0 ThrustThingZ (0, random(0,45), 0, 1)
+        goto See
+    Alt:
+    	GIB1 A 0 A_SpawnItemEx ("GIB1SPLAT", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 128, 0)
+    	Stop 
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        GIB1 A 5 A_Custommissile("Blood", -5,0,0)
+        GIB1 B 5 //A_Fadeout(0.1)
+        GIB1 AB 5
+        loop
+    Death:
+        GIB1 A 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        GIB1 A 0 A_Jump (64,2)
+        GIB1 A 0 A_Jump (128,2)
+        GIB1 A 200
+        Stop
+        GIB1 B 200
+        Stop
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+actor GIB2
+{
+	 renderstyle translucent
+	alpha 1.0
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -NOTELEPORT
+    -SOLID
+	-TELESTOMP
+    Radius 2
+    Damage 0
+    Decal BloodSplat
+    bouncefactor 0.4
+    SeeSound "gibbage/xgib"
+    Speed 5
+    States
+    {
+    Spawn:
+        GIB2 A 0
+        GIB2 A 0 A_Jump(64,"Alt") 
+        GIB2 A 0 ThrustThingZ (0, random(0,45), 0, 1)
+        goto See
+    Alt:
+    	GIB2 A 0 A_SpawnItemEx ("GIB2SPLAT", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 128, 0)
+    	Stop
+    See:
+	    NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        GIB2 A 5 A_Custommissile("Blood", -5,0,0)
+        GIB2 B 5 ThrustThingZ(0,6,1,1)
+        GIB2 C 5
+        GIB2 ABC 5 //A_Fadeout(0.1)
+        loop
+    Death:
+        GIB2 A 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        GIB2 A 0 A_Jump (32,3)
+        GIB2 A 0 A_Jump (64,3)
+        GIB2 A 0 A_Jump (128,3)
+        GIB2 A 200
+        Stop
+        GIB2 B 200
+        Stop
+        GIB2 C 200
+        Stop
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+actor GIB3
+{
+	 renderstyle translucent
+	alpha 1.0
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -NOTELEPORT
+    -SOLID
+	-TELESTOMP
+    Radius 2
+    Damage 0
+    Decal BloodSplat
+    bouncefactor 0.4
+    SeeSound "gibbage/xgib"
+    Speed 5
+    States
+    {
+    Spawn:
+        GIB1 A 0
+        GIB1 A 0 A_Jump(64,"Alt") 
+        GIB1 A 0 ThrustThingZ (0, random(0,45), 0, 1)
+        goto See
+    Alt:
+    	GIB1 A 0 A_SpawnItemEx ("GIB3SPLAT", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 128, 0)
+    	Stop 
+    See:
+	    NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        GIB3 B 5 A_Custommissile("Blood", -5,0,0)
+        GIB3 C 5 ThrustThingZ(0,6,1,1) 
+        GIB3 BC 5 //A_Fadeout(0.1)
+        loop
+    Death:    
+        GIB3 B 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        GIB3 B 0 A_Jump (64,2)
+        GIB3 B 0 A_Jump (128,2)
+        GIB3 B 200
+        Stop
+        GIB3 C 200
+        Stop
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+actor GIB4
+{
+	 renderstyle translucent
+	alpha 1.0
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -NOTELEPORT
+    -SOLID
+	-TELESTOMP
+    Radius 2
+    Damage 0
+    Decal BloodSplat
+    bouncefactor 0.4
+    SeeSound "gibbage/xgib"
+    Speed 5
+    States
+    {
+    Spawn:
+        GIB1 A 0
+        GIB1 A 0 A_Jump(64,"Alt") 
+        GIB1 A 0 ThrustThingZ (0, random(0,45), 0, 1)
+        goto See
+    Alt:
+    	GIB1 A 0 A_SpawnItemEx ("GIB4SPLAT", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 128, 0)
+    	Stop 
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        GIB4 A 5 A_Custommissile("Blood", -5,0,0)
+        GIB4 B 5 ThrustThingZ(0,6,1,1)
+        GIB4 C 5 
+        GIB4 ABC 5 //A_Fadeout(0.1)
+        loop
+    Death:
+        GIB4 A 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        GIB4 A 0 A_Jump (32,3)
+        GIB4 A 0 A_Jump (64,3)
+        GIB4 A 0 A_Jump (128,3)
+        GIB4 A 200
+        Stop
+        GIB4 B 200
+        Stop
+        GIB4 C 200
+        Stop
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+actor GIB5
+{
+	 renderstyle translucent
+	alpha 1.0
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -NOTELEPORT
+    -SOLID
+	-TELESTOMP
+    Radius 2
+    Damage 0
+    Decal BloodSplat
+    bouncefactor 0.4
+    SeeSound "gibbage/xgib"
+    Speed 5
+    States
+    {
+    Spawn:
+        GIB1 A 0
+        GIB1 A 0 A_Jump(64,"Alt") 
+        GIB1 A 0 ThrustThingZ (0, random(0,45), 0, 1)
+        goto See
+    Alt:
+    	GIB1 A 0 A_SpawnItemEx ("GIB5SPLAT", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 128, 0)
+    	Stop 
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        GIB5 A 5 A_Custommissile("Blood", -5,0,0)
+        GIB5 B 5 ThrustThingZ(0,6,1,1)
+        GIB5 C 5 
+        GIB5 ABC 5 //A_Fadeout(0.1)
+        loop
+    Death:
+        GIB5 A 0 A_ChangeFlag(NOBLOCKMAP, 0) 
+        GIB5 A 0 A_Jump (32,3)
+        GIB5 A 0 A_Jump (64,3)
+        GIB5 A 0 A_Jump (128,3)
+        GIB5 A 200
+        Stop 
+        GIB5 B 200
+        Stop 
+        GIB5 C 200 
+        Stop
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+Actor Blood3 
+{
+	Radius 0.1
+	Height 0.1
+	decal BloodSplatter6
+	States
+	{
+	Spawn:
+		TNT1 AA 0 A_SpawnItemEx("BloodFlash",0)
+		TNT1 A 0 A_SpawnItemEx("BloodParticles",0)
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile("BloodDrop",3,0,random(0,360),2,random(0,360))
+		Stop
+	}
+}
+
+Actor Blood1 : Blood replaces Blood
+{
+	Radius 0.1
+	Height 0.1
+	decal BloodSplatter6
+	States
+	{
+	Spawn:
+		TNT1 AAA 0 A_SpawnItemEx("Blood3",random(-10,10))
+		TNT1 AA 0 A_SpawnItemEx("BloodFlash",0)
+		TNT1 A 0 A_SpawnItemEx("BloodParticles",0)
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile("BloodDrop",3,0,random(0,360),2,random(0,360))
+		Stop
+	}
+}
+
+Actor BloodFlash
+{
+	Radius 1
+	Height 1
+	Scale 0.65
+	Alpha 0.3
+	decal BloodSplatter4
+	RenderStyle Translucent
+	+NOTDMATCH
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		BSP4 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 
+		BSP5 ABCD 1
+		Stop
+	}
+}
+
+Actor DifferentBloodPool
+{
+	Radius 1
+	Height 1
+	Scale 0.45
+	decal BloodSplatter1
+	+MOVEWITHSECTOR
+	States
+	{
+	Spawn:
+		POB2 A 1000
+		POB2 A 1 A_FadeOut(0.1)
+		Stop
+	}
+}
+
+Actor BloodDrop
+{
+	Radius 1
+	Height 1
+	Speed 6
+	Scale 0.4
+	Gravity 0.5
+	decal BloodSplatter2
+	PROJECTILE
+	-NOGRAVITY
+	+MOVEWITHSECTOR
+	states
+	{
+	Spawn:
+		BLOD A 1 A_CustomMissile("BloodDropTrail",0,0,0,0)
+		Loop
+	Death:
+		TNT1 A 0 A_SpawnItemEx("DifferentBloodPool",0)
+		TNT1 A 0 A_SpawnItemEx("BloodSplash",0)
+		Stop
+	}
+}
+
+Actor BloodDropTrail
+{
+	Radius 1
+	Height 1
+	Scale 0.4
+	decal BloodSplatter3
+	+NOGRAVITY
+	+NOINTERACTION
+	+NOTDMATCH
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		BLOD A 2 A_FadeOut(0.1)
+		Stop
+	}
+}
+
+Actor BloodParticles
+{
+	Radius 1
+	Height 1
+	Scale 0.8
+	decal BloodSplatter
+	+NOGRAVITY
+	+NOINTERACTION
+	+NOTDMATCH
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		BLOD ABCDEF 1
+		Stop
+	}
+}
+
+Actor Gib6
+{
+	Radius 4
+	Height 4
+	Mass 12
+	Speed 4.5
+	Scale 1.05
+	Gravity 0.65
+	Health 50
+	SeeSound "GibBounce"
+	DeathSound "DSGORE"
+	BloodType "BloodDrop"
+	+SOLID
+	+SHOOTABLE
+	-NONSHOOTABLE
+	+PUSHABLE
+	-NOGRAVITY 
+	+FLOORCLIP
+	+NEVERRESPAWN
+	+CORPSE
+	+ISMONSTER
+	+DOOMBOUNCE
+	+MOVEWITHSECTOR
+	DamageFactor "Punch", 0.0
+	states
+	{
+	Spawn:
+		GIB6 A 0 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		GIB6 A 4 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		Loop
+	Death:
+		GIB6 A -1
+		Stop
+	Pain:
+		GIB6 A 1
+		Goto Spawn
+	}
+}
+
+Actor DemonHand
+{
+	Radius 4
+	Height 4
+	Speed 5.5
+	Gravity 0.6
+	Health 50
+	SeeSound "GibBounce"
+	DeathSound "DSGORE"
+	BloodType "BloodDrop"
+	+SOLID
+	+SHOOTABLE
+	-NONSHOOTABLE
+	+PUSHABLE
+	-NOGRAVITY 
+	+FLOORCLIP
+	+NEVERRESPAWN
+	+CORPSE
+	+ISMONSTER
+	+DOOMBOUNCE
+	+MOVEWITHSECTOR
+	DamageFactor "Punch", 0.0
+	states
+	{
+	Spawn:
+		HND8 A 0 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 A 1 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 B 0 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 B 1 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 C 0 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 C 1 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 D 0 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 D 1 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 E 0 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 E 1 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 F 0 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 F 1 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 G 0 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 G 1 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 H 0 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		HND8 H 1 A_CustomMissile("BloodDrop",random(4,-4),random(5,-5),0,0)
+		Loop
+	Death:
+		HND8 H -1
+		Stop
+	Pain:
+		HND8 A 1
+		Goto Spawn
+	}
+}
+
+Actor SpectredGib1 : GIB1
+{
+	RenderStyle OptFuzzy
+}
+
+Actor SpectredGib2 : GIB2
+{
+	RenderStyle OptFuzzy
+}
+
+Actor SpectredGib3 : GIB3
+{
+	RenderStyle OptFuzzy
+}
+
+Actor SpectredGib4 : GIB4
+{
+	RenderStyle OptFuzzy
+}
+
+Actor SpectredGib5 : GIB5
+{
+	RenderStyle OptFuzzy
+}
+
+Actor SpectreDemonHand : DemonHand
+{
+	RenderStyle OptFuzzy
+}
+
+Actor GoreLaunched
+{
+	PROJECTILE
+	Speed 24
+	vspeed 0.2
+	Damage 2
+	Health 60
+	Scale 1.6
+	decal GoreScorch
+	DeathSound "GoreHits"
+	+EXTREMEDEATH
+	+SOLID
+	+SHOOTABLE
+	-NONSHOOTABLE
+	obituary "%o died right in the blood storm"
+	states
+	{
+	spawn:
+		GIB1 A 1 bright A_CustomMissile("BloodFlash2",3,0,random(0,360),2,random(0,360))
+		Loop
+	death:
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile("BloodDrop",3,0,random(0,360),2,random(0,360))
+		TNT1 AAA 0 A_CustomMissile("GIB4",3,0,random(0,360),2,random(0,360))
+		TNT1 A 1 bright
+		Stop
+	}
+}
+
+Actor BloodFlash2 : BloodFlash
+{
+	Scale 1.6
+	Alpha 0.65
+}
+
+ACTOR DPT_BloodPuff
+{
+	Radius 1
+	Height 1
+	Alpha 0.5
+	Scale 4.4
+	Gravity 0.01
+	Speed 0.2
+	+FORCEXYBILLBOARD
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOTELEPORT
+	+DONTSPLASH
+	+MISSILE
+	States
+	{
+	Spawn:
+		BLOD A 1
+		Goto Death
+	Death:
+		BLOD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 A_FadeOut(0.01)
+		Stop
+	}
+}
+
+ACTOR DPT_BloodDrop
+{
+	Radius 1
+	Height 1
+	speed 1
+	+FORCEXYBILLBOARD
+	+FLOORCLIP
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOBLOCKMONST
+	+CORPSE
+	-SOLID    
+	+NoBlockMap
+	+MoveWithSector
+	Mass 500
+	states
+	{
+	spawn:
+		TNT1 A 0
+		TNT1 A 0 Thing_ChangeTid(0,386) 
+		BLOD ABCDEF 1 A_FadeOut(0.01)
+		wait
+	death:
+		TNT1 A 0
+		TNT1 A 0 A_Scream
+		TNT1 A 1 A_ChangeFlag("CORPSE",1)
+		wait
+	Crash:
+		BLD2 CDEFG 2
+		TNT1 A 0 A_JumpIf(waterlevel == 3,"splash")
+		TNT1 A 0 A_ChangeFlag("NOBLOCKMAP",0)
+		TNT1 A 0 A_Jump(128,2,3,4)
+		TNT1 A 0 A_Jump(64,4)
+		TNT1 A 0 A_Jump(128,4)
+		TNT1 A 0 A_Jump(192,4)
+		TNT1 A 0 A_Jump(255,4)
+		BSPT A 15000
+		stop
+		BSPT B 15000
+		stop
+		BSPT C 15000
+		stop
+		BSPT D 15000
+		stop
+	Splash:
+		TNT1 A 0
+		stop
+	}
+}
+
+Actor DPT_BloodTrail
+{
+	-NOGRAVITY
+	+NOCLIP
+	radius 16
+	height 16
+	gravity 0.5
+	Scale 1.5
+	+FORCEXYBILLBOARD
+	states
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 Thing_ChangeTid(0,386)
+		TNT1 A 0 A_SpawnDebris("DPT_BloodPuff",1)
+		BLOD ABCD 2
+		stop
+	}
+}
+
+actor DPT_FlyingBlood
+{
+	game Doom
+	scale 0.75
+	health 1
+	radius 8
+	height 1
+	mass 1
+	+CORPSE
+	+NOTELEPORT
+	+NOBLOCKMAP
+	states
+	{
+	Spawn:
+		TNT1 A 0
+		FBLD A 1 A_SpawnItem("DPT_FlyingBloodTrail",0,0,0,1)
+		FBLD A 1 
+		FBLD A 1 A_SpawnItem("DPT_FlyingBloodTrail",0,0,0,1)
+		FBLD A 1
+		FBLD B 1 A_SpawnItem("DPT_FlyingBloodTrail",0,0,0,1)
+		FBLD B 1
+		FBLD B 1 A_SpawnItem("DPT_FlyingBloodTrail",0,0,0,1)
+		FBLD B 1
+		FBLD C 1 A_SpawnItem("DPT_FlyingBloodTrail",0,0,0,1)
+		FBLD C 1
+		FBLD C 1 A_SpawnItem("DPT_FlyingBloodTrail",0,0,0,1)
+		FBLD C 1
+		FBLD D 1 A_SpawnItem("DPT_FlyingBloodTrail",0,0,0,1)
+		FBLD D 1
+		FBLD D 1 A_SpawnItem("DPT_FlyingBloodTrail",0,0,0,1)
+		FBLD D 1
+		loop
+	Crash:
+		TNT1 A 1 A_SpawnItem("DPT_BloodDrop",0,0,0,1)
+		stop
+	}
+}
+
+actor DPT_FlyingBloodTrail
+{
+	game Doom
+	scale 0.70
+	mass 1
+	+LOWGRAVITY
+	+NOTELEPORT
+	+NOBLOCKMAP
+	states
+	{
+	Spawn:
+		BTRL A 4
+		BTRL B 4
+		BTRL C 4
+		BTRL D 4
+		stop
+	}
+}
+
+ACTOR DPT_BloodSplat : Blood
+{
+	+nogravity
+	+noclip
+	+forcexybillboard
+	Alpha 0.3
+	Scale 0.4
+	height 1
+	radius 1
+	Decal bloodSplat
+	States
+	{
+	spawn:
+		TNT1 A 0
+		TNT1 A 0 A_PlaySound ("misc/bulletflesh")
+		TNT1 A 0 A_Jump (256, "death1", "death2")
+		stop
+	death1:
+		TNT1 AA 0 A_SpawnItemEx ("DPT_BloodChunk", 0,0,10,random(-3,3),random(-3,3),random(-3,4), 0,161)
+		stop
+	death2:
+		TNT1 A 0 A_SpawnItemEx ("DPT_BloodChunk2", 0,0,10,random(-4,4),random(-4,4),random(-4,6), 0,161)
+		stop
+	noblood:
+		TNT1 A 0
+		stop
+	}
+}
+
+ACTOR DPT_BloodChunk
+{
+	+noteleport
+	+noclip
+	+forcexybillboard
+	Scale 0.2
+	Height 1
+	Radius 1
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump (256, "Death1", "Death2", "Death3")
+	Death1:
+		BLOD AAAA 1 A_SpawnItemEx ("DPT_BloodTrail", 0,0,0, 0,0,0, 0,161)
+		stop
+	Death2:
+		BLOD BBBB 1 A_SpawnItemEx ("DPT_BloodTrail2", 0,0,0, 0,0,0, 0,161)
+		stop
+	Death3:
+		BLOD CCCC 1 A_SpawnItemEx ("DPT_BloodTrail3", 0,0,0, 0,0,0, 0,161)
+		stop
+	Death:
+		TNT1 A 0
+		stop
+	}
+}
+
+ACTOR DPT_BloodChunk2 : DPT_BloodChunk
+{
+	scale 0.3
+}
+
+ACTOR DPT_BloodTrail3
+{
+	alpha 0.3
+	scale 0.2
+	+noteleport
+	+noclip
+	states
+	{
+	spawn:
+		BLOD A 0
+		BLOD A 0 A_SetGravity (0.02)
+	fade:
+		BLOD A 4 A_FadeOut (0.06) 
+		loop
+	}
+}
+ACTOR DPT_BloodTrail2 : DPT_BloodTrail3
+{
+	alpha 0.6
+	scale 0.3
+}
+
+ACTOR DPT_MegaBloodSplatter
+{
+	height 1
+	radius 1
+	+nogravity
+	+noclip
+	+noteleport
+	states
+	{
+	spawn:
+		TNT1 A 0
+		TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx ("DPT_BloodChunk", random(-2,2),random(-2,2),random(-2,2), random(-4,4),random(-4,4),random(2,12),random(0,360),161,32)
+		stop
+	noblood:
+		BAL1 A 0
+		stop
+	}
+}
+
+ACTOR DPT_GibHead
+{
+	Radius 8
+	Height 8
+	Speed 16
+	Mass 6
+	BounceFactor 0.5
+	+DOOMBOUNCE
+	+NOBLOCKMAP
+	+MISSILE
+	+NOTELEPORT
+	+DONTSPLASH
+	+CLIENTSIDEONLY
+	DeathSound "misc/xdeath1"
+	Decal BloodSplat
+	States
+	{
+	Spawn:
+		GRFC A 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Loop
+	Death:
+		GRFC A 1000
+		Stop
+	}
+}
+
+actor DPT_XTRAGib1
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB1 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB1 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib2
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB2 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB2 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib3
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB3 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB3 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib4
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB4 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB4 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib5
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB5 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB5 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib6
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB6 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB6 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib7
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB7 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB7 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib8
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB8 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB8 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib9
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB9 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB9 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib10
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIB0 A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIB0 A -1
+		stop
+	}
+}
+
+actor DPT_XTRAGib11
+{
+	health 1
+	radius 8
+	height 8
+	mass 1
+	scale 0.75
+	+CORPSE
+	+NOTELEPORT
+	states
+	{
+	Spawn:
+		GIBI A 8 A_SpawnDebris("DPT_FlyingBlood",1)
+		loop
+	Crash:
+		GIBI A -1
+		stop
+	}
+}
+
+ACTOR DPT_Gib1
+{
+    Radius 8
+    Height 8
+    Speed 16
+    Scale 0.5
+	Mass 1
+	BounceFactor 0.5
+	+DOOMBOUNCE
+    +NOBLOCKMAP
+	+MISSILE
+    +NOTELEPORT
+    +DONTSPLASH
+    +CLIENTSIDEONLY
+    DeathSound "misc/xdeath1"
+	Decal BloodSplat
+    States
+    {
+    Spawn:
+        XDT1 ABCD 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+        Loop
+    Death:
+        XDT1 EFGHIJKL 5
+		BSPT B 150
+        Stop
+    }
+}
+
+ACTOR DPT_Gib2
+{
+    Radius 8
+    Height 8
+    Speed 15
+	Mass 1
+	BounceFactor 0.5
+	+DOOMBOUNCE
+    +NOBLOCKMAP
+	+MISSILE
+    +NOTELEPORT
+    +DONTSPLASH
+    +CLIENTSIDEONLY
+    DeathSound "misc/xdeath2"
+	Decal BloodSplat
+    Scale 0.5
+    States
+    {
+    Spawn:
+        XDT2 ABCD 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+        Loop
+    Death:
+        XDT2 EFGHIJ 5
+		BSPT A 150
+        Stop
+    }
+}
+
+ACTOR DPT_Gib3
+{
+    Radius 8
+    Height 8
+	Speed 15.5
+	Mass 1
+    +NOBLOCKMAP
+	+MISSILE
+    +NOTELEPORT
+    +DONTSPLASH
+    +CLIENTSIDEONLY
+    SeeSound "misc/xdeath4"
+    DeathSound "misc/xdeath3"
+	Decal BloodSplat
+    States
+    {
+    Spawn:
+        XDT3 A 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+        Loop
+    Death:
+        XDT3 BCDE 3
+        XDT3 FGH 3
+		XDT3 F 150
+        Stop
+    }
+}
+
+ACTOR DPT_Gib4
+{
+    Radius 8
+    Height 8
+	Speed 15.5
+	Mass 1
+    +NOBLOCKMAP
+	+MISSILE
+    +NOTELEPORT
+    +DONTSPLASH
+    +CLIENTSIDEONLY
+    SeeSound "misc/xdeath4"
+    DeathSound "misc/xdeath3"
+	Decal BloodSplat
+    States
+    {
+    Spawn:
+        XDT3 A 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+        Loop
+    Death:
+        XDT3 BCDE 3
+        XDT3 FGH 3
+		BSPT D 150
+        Stop
+    }
+}
+
+ACTOR DPT_GibMeat1
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 14
+	Mass 1
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		GRMT A 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Goto Death
+	Death:
+	    GRMT A 1000
+        Stop
+    }
+}
+
+ACTOR DPT_GibMeat2
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 11
+	Mass 1
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		GRMT B 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Goto Death
+	Death:
+	    GRMT B 1000
+		Stop
+    }
+}
+
+ACTOR DPT_GibMeat3
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 12
+	Mass 1
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		XDT5 G 1000
+		Stop
+    }
+}
+
+ACTOR DPT_GibBrain1
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 13
+	Mass 1
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		XDT5 B 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Goto Death
+	Death:
+	    XDT5 B 1000
+		Stop
+    }
+}
+
+ACTOR DPT_GibBrain2
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 12
+	Mass 1
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		XDT5 C 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+	Goto Death
+	Death:
+	    XDT5 C 1000
+		Stop
+    }
+}
+
+ACTOR DPT_GibSmashedBrain
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 10
+	Mass 1
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		BRS1 A 4 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Goto Death
+	Death:
+	    BRS1 A 1000
+		Stop
+    }
+}
+
+ACTOR DPT_GibStomach
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 11
+	Mass 1
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		XDT5 F 1000
+        Stop
+    }
+}
+
+ACTOR DPT_GibStomachHeavy
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 2
+	Mass 4
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		XDT5 F 1000
+        Stop
+    }
+}
+
+ACTOR DPT_GibTripe
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 13
+	Mass 4
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		XDT5 H 1000
+		Stop
+    }
+}
+
+ACTOR DPT_GibArm1
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 12
+	Mass 1
+	Decal BloodSplat
+	BounceFactor 0.5
+	+DOOMBOUNCE
+	+MISSILE
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		XDT5 I 12 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Loop
+	Death:
+	    XDT5 I 1000
+        Stop
+    }
+}
+
+ACTOR DPT_GibArm2
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 12
+	Mass 1
+	Decal BloodSplat
+	BounceFactor 0.5
+	+DOOMBOUNCE
+	+MISSILE
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		XDT5 J 12 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Loop
+	Death:
+	    XDT5 J 1000
+        Stop
+    }
+}
+
+ACTOR DPT_GibSkull
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 12
+	Mass 1
+	Decal BloodSplat
+	BounceFactor 0.5
+	+DOOMBOUNCE
+	+MISSILE
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		GRSK A 12 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Loop
+	Death:
+	    GRSK A 1000
+        Stop
+    }
+}
+
+ACTOR DPT_GibEYE1
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 12
+	Mass 1
+	Decal BloodSplat
+	BounceFactor 0.5
+	+DOOMBOUNCE
+	+MISSILE
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		GRBL A 12 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Loop
+	Death:
+	    GRBL A 1000
+        Stop
+    }
+}
+
+ACTOR DPT_GibEYE2
+{
+    Radius 8
+    Height 8
+    Scale 0.8
+	Speed 12
+	Mass 1
+	Decal BloodSplat
+	BounceFactor 0.5
+	+DOOMBOUNCE
+	+MISSILE
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +CLIENTSIDEONLY
+    States
+    {
+    Spawn:
+		GRBL A 12 A_CustomMissile("DPT_BloodTrail",0,0,180,2)
+		Loop
+	Death:
+	    GRBL A 1000
+        Stop
+    }
+}
+
+ACTOR DPT_MarineXDeath
+{
+	Radius 1
+	Height 1
+	Scale 0.8
+	Speed 0
+	Mass 1
+	Decal BloodSplat
+	BounceFactor 0.5
+	+DOOMBOUNCE
+	+MISSILE
+	+NOBLOCKMAP
+	+NOTELEPORT
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_CustomMissile ("DPT_GibArm1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibArm2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibTripe", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibMeat1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibMeat2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibMeat1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibMeat3", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibStomach", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibBrain1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibBrain2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibTripe", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib3", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib3", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib3", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib4", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib4", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib4", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib4", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib4", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib4", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib4", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_Gib4", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibHead", 32, 0, random (0, 360), 2, random (0, 160))
+		// NEW BLOOD
+		TNT1 A 0 A_CustomMissile ("DPT_GibSkull", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibEYE1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("DPT_GibEYE2", 32, 0, random (0, 360), 2, random (0, 160))
+	Death:
+		TNT1 A 0
+		Stop
+	}
+}
+
+actor DPT_GibGenerator : DPT_MarineXDeath
+{ 
+states 
+	{ 
+	Spawn: 
+     TNT1 A 0 
+     TNT1 A 0 A_Jump(128, 8) 
+     TNT1 A 0 A_Jump(128, 4) 
+     TNT1 A 0 A_Jump(128, 2) 
+     TNT1 A 1 A_SpawnDebris("DPT_XTRAGib1") 
+     stop 
+	 TNT1 A 1 A_SpawnDebris("DPT_XTRAGib2") 
+     stop 
+     TNT1 A 0 A_Jump(128, 2) 
+     TNT1 A 1 A_SpawnDebris("DPT_XTRAGib3") 
+     stop 
+     TNT1 A 1 A_SpawnDebris("DPT_XTRAGib4") 
+     stop 
+     TNT1 A 0 A_Jump(128, 4) 
+     TNT1 A 0 A_Jump(128, 2) 
+     TNT1 A 1 A_SpawnDebris("DPT_XTRAGib5") 
+     stop 
+     TNT1 A 1 A_SpawnDebris("DPT_XTRAGib6") 
+     stop 
+     TNT1 A 0 A_Jump(128, 2) 
+     TNT1 A 1 A_SpawnDebris("DPT_XTRAGib7") 
+     stop 
+     TNT1 A 1 A_SpawnDebris("DPT_XTRAGib8") 
+     stop 
+   } 
+}
+
+actor DPT_CrushedSmall
+{
+states
+	{
+	Spawn:
+	 CRS1 A -1
+	 loop
+	}
+}
+
+actor DPT_CrushedMedium
+{
+states
+	{
+	Spawn:
+	 CRS2 A -1
+	 loop
+	}
+}
+
+actor DPT_CrushedLarge
+{
+states
+	{
+	Spawn:
+	 CRS3 A -1
+	 loop
+	}
+}
+
+actor DPT_CrushedMediumGreen : DPT_CrushedMedium
+{
+translation "16:47=112:127","168:191=112:127"
+}
+
+actor DPT_CrushedMediumBlue : DPT_CrushedMedium
+{
+translation "16:47=192:207","168:191=192:207"
+}
+
+ACTOR DPT_BloodyTwitch : BloodyTwitch replaces BloodyTwitch
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_Meat2 : Meat2 replaces Meat2
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_Meat3 : Meat3 replaces Meat3
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_Meat4 : Meat4 replaces Meat4
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_Meat5 : Meat5 replaces Meat5
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_NonsolidMeat2 : DPT_Meat2 replaces NonsolidMeat2
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_NonsolidMeat3 : DPT_Meat3 replaces NonsolidMeat3
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_NonsolidMeat4 : DPT_Meat4 replaces NonsolidMeat4
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_NonsolidMeat5 : DPT_Meat5 replaces NonsolidMeat5
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_NonsolidTwitch : DPT_BloodyTwitch replaces NonsolidTwitch
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_DeadStick : DeadStick replaces DeadStick
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_LiveStick : LiveStick replaces LiveStick
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_HangNoGuts : HangNoGuts replaces HangNoGuts
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_HangBNoBrain : HangBNoBrain replaces HangBNoBrain
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_HangTLookingDown : HangTLookingDown replaces HangTLookingDown
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_HangTLookingUp : HangTLookingUp replaces HangTLookingUp
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_HangTSkull : HangTSkull replaces HangTSkull
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR DPT_HangTNoBrain : HangTNoBrain replaces HangTNoBrain
+{
+   mass 999999999
+   health -1
+   +SHOOTABLE
+}
+
+ACTOR MARINEXDEATH
+{
+	States
+	{
+		NULL A 1 A_PlaySound("gibbage/xsplat")
+		NULL A 0 A_PlaySound("gibbage/playergib") 
+		NULL A 0 A_NoBlocking 
+		NULL A 0 A_SpawnItemEx("PLAYERBOOT", 0, 0, 11, 0, 0, 27, 33, 160, 0)
+		NULL A 0 A_SpawnItemEx("PLAYERBOOT", 0, 0, 11, 0, 0, 27, -33, 160, 0)
+		NULL A 0 A_SpawnItemEx("SHOTGUYARM", 0, 0, 25, 0, 0, 50, random(0,360), 160, 0)
+		NULL A 0 A_SpawnItemEx("SHOTGUYARM", 0, 0, 36, 0, 0, 32, random(0,360), 160, 0)
+		NULL A 0 A_SkullPop("Custom_BloodySkull")
+		NULL A 1 A_SpawnItemEx("GIBBER", 0, 0, 0, 0, 0, 0, 0, 160, 0)
+		Stop
+	}
+}
+
+Actor DebrisGeneral
+{
+	+MISSILE
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+NOTELEPORT
+	+FORCEXYBILLBOARD
+	+NOTDMATCH
+	+GHOST
+	radius 1
+	height 1
+	mass 1
+	damage 0
+}
+
+ACTOR NewTeleportFog : TeleportFog replaces TeleportFog
+{
+  Scale 0.9
+  RenderStyle Add
+  States
+  {
+  Spawn:
+    TELP ABCDEF 5 Bright
+    Stop
+  }
+}
+
+actor SSG : Supershotgun replaces SuperShotgun
+{
+	Weapon.AmmoUse 2
+	Weapon.AmmoGive 8
+	Weapon.AmmoType "Shell"
+	Inventory.PickupMessage "You got the super shotgun!" 
+	Obituary "%o was splattered by %k's super shotgun."
+	States
+	{
+	Ready:
+		SHT2 A 1 A_WeaponReady
+		Loop
+	Deselect:
+		SHT2 A 1 A_Lower
+		Loop
+	Select:
+		SHT2 A 1 A_Raise
+		Loop
+	Fire:
+		SHT2 A 3 
+		SHT2 A 21 A_FireShotgun2
+		SHT2 B 4
+		SHT2 C 4 A_CheckReload
+		SHT2 D 4 A_OpenShotgun2
+		SHT2 E 4
+		SHT2 F 5 A_LoadShotgun2
+		SHT2 G 4
+		SHT2 H 3 A_CloseShotgun2
+		SHT2 A 3 A_ReFire
+		Goto Ready
+	Flash:
+		SHT2 I 4 Bright A_Light1
+		SHT2 J 3 Bright A_Light2
+		Goto LightDone
+	Spawn:
+		WP32 A -1
+		Stop
+	}
+}
+
+actor isfighter : inventory
+{
+	Inventory.MaxAmount 1 
+}
+
+actor isEngineer : inventory 
+{
+	Inventory.MaxAmount 1 
+}
+
+actor isMedic : inventory 
+{
+	Inventory.MaxAmount 1 
+}
+
+ACTOR Bazooka : Rocketlauncher
+{
+	states
+	{
+	Ready:
+		MISG A 1 A_WeaponReady
+		Loop
+	Deselect:
+		MISG A 1 A_Lower
+		Loop
+	Select:
+		MISG A 1 A_Raise
+		Loop
+	Fire:
+		MISG B 8 A_GunFlash
+		MISG B 12 A_FireMissile
+		MISG B 30
+		Goto Ready
+	Flash:
+		MISF A 3 Bright A_Light1
+		MISF B 4 Bright
+		MISF CD 4 Bright A_Light2
+		Goto LightDone
+	Spawn:
+		WP51 A -1
+		Stop
+	}
+}
+
+actor Pumped : inventory
+{
+	Inventory.MaxAmount 1
+}
+
+actor AMissile : rocket replaces Rocket
+{
+	Decal BigScorch
+	+ROCKETTRAIL
+	Speed 39
+	states
+	{
+	Spawn:
+		MISL A 5 A_CustomMissile("RevenantTracerSmoke1",0,random(-60,60),0,0)
+		Loop
+	Death:
+		EXS1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile("Tracerpiece",3,0,random(0,360),2,random(0,360))
+		EXS1 A 2 bright A_Explode
+		EXS1 GH 2 bright A_FADEOUT(0.1)
+		Stop
+	}
+}
+
+actor Tracerpiece : RevenantTracerSmoke
+{
+	Speed 10
+	+NOCLIP
+	states
+	{
+	Spawn:
+		SMOK A 1 bright A_FadeOut(0.1)
+		Stop
+	}
+}
+
+Actor RevenantTracerSmoke1 : RevenantTracerSmoke replaces RevenantTracerSmoke
+{
+	Speed 5
+	states
+	{
+	Spawn:
+		SMOK A 5 bright A_FadeOut(0.1)
+		Loop
+	}
+}
+
+ACTOR AntiTechGrenade : CustomInventory 
+{
+	Inventory.Icon ARTIPSBG
+	Inventory.Amount 1
+	Inventory.MaxAmount 15
+	Inventory.PickupMessage "picked up an antitech grenade"
+	Scale 0.5
+	+INVBAR
+	+FLOORCLIP
+	+WINDTHRUST
+	States
+	{
+	Spawn:
+		THRW A -1
+		Stop
+	Use:
+		THRW A 0 A_ThrowGrenade("ElectricGrenade",5)
+		Stop
+	} 
+}
+
+ACTOR RocketBox1 : RocketBox replaces RocketBox 
+{
+	Game Doom
+	SpawnID 141
+	Inventory.PickupMessage "picked up a rocket box"
+	States
+	{
+	Spawn:
+		BROK A -1
+		Stop
+	Pickup:
+		BROK A 0 A_GiveInventory("RocketAmmo",5)
+		BROK A 1 A_GiveInventory("AntiTechGrenade",1)
+		Stop
+	}
+}
+
+Actor ElectricGrenade
+{
+	Radius 8
+	Height 8
+	Speed 12
+	Damage -1
+	PROJECTILE
+	-NOGRAVITY
+	-DROPOFF
+	+DOOMBOUNCE
+	+FRIENDLY
+	DamageType "ElectricBomb"
+	DeathSound "Sparks/Spawn"
+	Scale 0.7
+	States
+	{
+	Spawn: 
+		THRW ABCDEF 3 bright
+		Loop
+	Death:
+		FX16 G 1 A_MushRoom("TurretAzul",4)
+		FX16 GHIJK 6 bright
+		Stop
+	}
+}
+
+Actor TurretAzul
+{
+	Radius 3
+	Scale 0.85
+	Height 3
+	Speed 12
+	Damage 1
+	PROJECTILE
+	DamageType "ElectricBomb"
+	States
+	{
+	Spawn: 
+		FX16 DE 3 bright
+		Loop
+	}
+}
+
+Actor Hands : Weapon 
+{
+	Weapon.KickBack 12
+	Inventory.PickupMessage ""
+	Obituary "%k > Unarmed > %o"
+	+WEAPON.NOAUTOFIRE
+	+INVENTORY.UNDROPPABLE
+	+NOALERT
+	States
+	{
+	Ready:
+		HAND A 0 A_PlaySound("KNUCKLED")
+		HAND ABCD 4
+		PUNG A 1 A_WeaponReady
+		PUNG A 1 A_WeaponReady
+		Goto Ready+5
+	Deselect:
+		PUNG L 0 A_Lower
+		PUNG L 1 A_Lower
+		Loop
+	Select:
+		PUNG A 0 A_Raise
+		PUNG A 1 A_Raise
+		Loop
+	Fire:
+		PUNG B 1 A_PlayWeaponSound("SWING")
+		PUNG CD 2 
+		PUNG D 1 A_CustomPunch (3, 0, 0, "BulletPuff")
+		PUNG DC 2 
+		Goto Ready+5
+	AltFire:
+		PUNG E 1 A_PlayWeaponSound("SWING")
+		PUNG FG 2 
+		PUNG G 1 A_CustomPunch (3, 0, 0, "BulletPuff")
+		PUNG GF 2 
+		Goto Ready+5
+	}
+}
+
+actor StrikeCount : inventory
+{
+	Inventory.MaxAmount 1 
+}
+
+Actor SmokeSpawner : DebrisGeneral
+{
+	Speed 20
+	+NOCLIP
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 Thing_ChangeTID(0,390)
+		TNT1 A 0 A_SpawnItem("ShotSmoke",0,0)
+		Stop
+	}
+}
+
+actor ShotSmoke
+{
+	+NOTDMATCH
+	+NOINTERACTION
+	vspeed 1
+	renderstyle Add
+	alpha 0.3
+	scale 0.1
+	states
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 Thing_ChangeTID(0,390)
+		SMOK ABCDEFGHIJKLMNOPQ 1 A_SpawnItem("ShotSmokeTrail") //A_FadeOut(0.01)
+		stop
+	}
+}
+
+Actor ShotSmokeTrail : ShotSmoke
+{
+	vspeed 0
+	alpha 0.15
+	states
+	{
+	Spawn:
+		SMOK CDEFGHIJKLMNOPQ 1
+		stop
+	}
+}
+
+Actor Rocket1Trail
+{
+	+NOTDMATCH
+	+NOCLIP +NOBLOCKMAP
+	+NOGRAVITY
+	+NOINTERACTION
+	scale 0.1
+	renderstyle translucent
+	alpha 0.4
+	states
+	{
+	Spawn:
+		SMOK ABCDEFGHIJKLMNOPQ 1 Thing_ChangeTID(0,390)
+		stop
+	}
+}
+
+Actor SmokingPiece : DebrisGeneral
+{
+	-NOGRAVITY
+	speed 12
+	gravity 0.7
+	states
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 Thing_ChangeTID(0,390)
+		TNT1 A 1 A_SpawnItem("SmokingPieceSmoke")
+		wait
+	}
+}
+
+Actor SmokingPieceSmoke : ShotSmokeTrail
+{
+	scale 0.06
+	alpha 0.5
+}
+
+Actor ExplosiveBarrel1 : ExplosiveBarrel replaces ExplosiveBarrel
+{
+	states
+	{
+	Spawn:
+		BAR1 AB 4
+		loop
+	Death:
+		BEXP AB 2
+		BEXP C 2 A_Scream
+		BEXP D 2 A_Explode
+		TNT1 A 0 Radius_Quake(3,15,0,5,0)
+		TNT1 AAAAAAA 0 A_custommissile("SmokingPiece",random(0,16),random(-8,8),random(-360,360),2,random(10,70))
+		TNT1 AAAAAA 0 A_custommissile("BarrelPart",20,random(-5,5),random(0,360),2,random(40,80))
+		TNT1 A 0 A_SpawnItem("XBarrelChunk",0,0)
+		BEXP EFGHIJKLMNOPQ 2
+		BEXP Q 1050 A_BarrelDestroy
+		BEXP Q 5 A_Respawn
+		wait
+	}
+}
+
+ACTOR XBarrelChunk
+{
+	States
+	{
+	Spawn:
+		BEXP RSTRSTRSTRSTRSTRST 7 BRIGHT
+		BEXP RSTRST 8 BRIGHT
+		BEXP RSTRST 9 BRIGHT
+		BEXP RSTRSTRSTRRSSTTRRSSTTRRRSSSTTTRRRRSSSSTTTT 10
+		BEXP U -1
+		stop
+	}
+}
+
+Actor BarrelPart : SmokingPiece
+{
+	-ROCKETTRAIL
+	+DOOMBOUNCE
+	renderstyle translucent
+	alpha 1.0
+	scale 0.85
+	-NOBLOCKMAP
+	gravity 1.0
+	seesound "bounce"
+	mass 1
+	states
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 Thing_ChangeTID(0,390)
+		BPRT ABCDEFGH 2 A_SpawnItem("ShotSmoke")
+		loop
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_jump(255,"death1","death2","death3","death4","death5","death6")
+	Death1:
+		BPRT A 1 A_Fadeout(0.001)
+		loop
+	Death2:
+		BPRT C 1 A_Fadeout(0.001)
+		loop
+	Death3:
+		BPRT E 1 A_Fadeout(0.001)
+		loop
+	Death4:
+		BPRT G 1 A_Fadeout(0.001)
+		loop
+	Death5:
+		BPRT B 1 A_Fadeout(0.001)
+		loop
+	Death6:
+		BPRT D 1 A_Fadeout(0.001)
+		loop
+	}
+}
+
+// Nash blood, thanks to guess who: Nash!
+
+actor NashGore_Blood : Blood replaces Blood
+{
+ -TELESTOMP
+ states
+ {
+  Spawn:
+  BLUD C 0
+  BLUD C 8 A_SpawnItemEx("NashGore_FlyingBlood", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+  BLUD B 8 
+  BLUD A 300 
+  stop
+ }
+}
+
+actor NashGore_FlyingBlood
+{
+ game Doom
+ scale 0.75
+ health 1
+ radius 8
+ height 1
+ mass 1
+ renderstyle translucent
+ alpha 1.0
+ +CORPSE
+ +NOTELEPORT
+ +NOBLOCKMAP
+ -TELESTOMP
+ states
+ {
+ Spawn:
+  TNT1 A 0 A_CheckSight("Cheap")
+  FBLD A 1 A_SpawnItem("NashGore_FlyingBloodTrail",0,0,0,1)
+  FBLD A 1 A_JumpIf(waterlevel > 1, "Remove")
+//  FBLD A 0 A_Fadeout(0.1)
+  loop
+ Cheap:
+  FBLD A 8 A_SpawnItem("NashGore_FlyingBloodTrail",0,0,0,1)
+  FBLD A 1 A_JumpIf(waterlevel > 1, "Remove")
+//  FBLD A 0 A_Fadeout(0.1)
+  loop
+ Crash:
+  TNT1 A 1 A_SpawnItem("NashGore_BloodSpot",0,0,0,1)
+  stop
+   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+ }
+}
+
+actor NashGore_BloodSpot
+{
+ game Doom
+ radius 12
+ height 2
+ mass 1
+ 
+  renderstyle translucent
+ alpha 1.0
+ +NOTELEPORT
+ -NOBLOCKMAP
+ -TELESTOMP
+ states
+ {
+ Spawn:
+  TNT1 A 0
+  TNT1 A 0 A_PlaySound("gibbage/blood")
+  TNT1 A 0 A_Jump(64,4)
+  TNT1 A 0 A_Jump(128,4)
+  TNT1 A 0 A_Jump(192,4)
+  TNT1 A 0 A_Jump(255,4)
+  // make the blood spots stay on the ground. 1500 is the default duration.
+  BSPT A 200 A_JumpIf(waterlevel > 1, "Remove")
+  stop
+  BSPT B 200 A_JumpIf(waterlevel > 1, "Remove")
+  stop
+  BSPT C 200 A_JumpIf(waterlevel > 1, "Remove")
+  stop
+  BSPT D 200 A_JumpIf(waterlevel > 1, "Remove")
+  stop
+   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+ }
+}
+
+// Blood trails spawned by FlyingBlood
+actor NashGore_FlyingBloodTrail
+{
+ game Doom
+ scale 0.70
+ mass 1
+ +LOWGRAVITY
+ +NOTELEPORT
+ +NOBLOCKMAP
+ -TELESTOMP
+ states
+ {
+  Spawn:
+  BTRL A 4 A_JumpIf(waterlevel > 1, "Remove")
+  BTRL B 4 A_JumpIf(waterlevel > 1, "Remove")
+  BTRL C 4 A_JumpIf(waterlevel > 1, "Remove")
+  BTRL D 4 A_JumpIf(waterlevel > 1, "Remove")
+  stop
+   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+ }
+}
+
+actor GIBBER
+{
+	Height 1
+	Radius 1
+	+NOGRAVITY
+	+NOCLIP
+	-TELESTOMP
+	States
+	{
+	Spawn:
+        NULL A 0
+        NULL A 0 A_PlaySound("gibbage/xsplat")
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        Stop
+    }
+}
+
+//Actor-specific Carnage
+
+actor ZOMBIEMANLEG
+{
+	 renderstyle translucent
+	alpha 1.0
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    -SOLID
+	-TELESTOMP
+    Radius 3
+    Damage 0
+    bouncefactor 0.4
+    Decal BloodSplat
+    SeeSound "gibbage/xpart"
+    Speed 5
+    States
+    {
+    Spawn:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        PLEG A 5 A_Custommissile("Blood", -5,0,0)
+        PLEG B 5 ThrustThingZ(0,6,1,1)
+        PLEG C 5 
+        PLEG ABC 5 //A_Fadeout(0.1)
+        loop
+    Death:
+        PLEG C 0 A_Jump (32,3)
+        PLEG C 0 A_Jump (64,3)
+        PLEG C 0 A_Jump (128,3)
+        PLEG A -1
+        Stop 
+        PLEG B -1  
+        Stop
+        PLEG C -1 
+        Stop
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+actor SHOTGUYARM
+{
+	 renderstyle translucent
+	alpha 1.0
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    -SOLID
+	-TELESTOMP
+    Radius 3
+    Damage 0
+    bouncefactor 0.4
+    Decal BloodSplat
+    SeeSound "gibbage/xpart"
+    Speed 5
+    States
+    {
+    Spawn:
+        SARM A 0 
+        SARM A 0 ThrustThingZ (0, 45, 0, 1)
+        goto See 
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        SARM A 5 A_Custommissile("Blood", -5,0,0)
+        SARM B 5 ThrustThingZ(0,6,1,1)
+        SARM C 5 
+        SARM ABC 5 //A_Fadeout(0.1)
+        loop
+    Death:
+        SARM C 0 A_Jump (128,3)
+        SARM C 0 A_Jump (128,3)
+        SARM C 0 A_Jump (128,3)
+        SARM A -1 
+        Stop
+        SARM B -1 
+        Stop
+        SARM C -1 
+        Stop    
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+actor MARINEHEAD
+{
+	 renderstyle translucent
+	alpha 1.0
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    -SOLID
+	-TELESTOMP
+    Radius 3
+    Damage 0
+    Decal BloodSplat
+    bouncefactor 0.6
+    SeeSound "gibbage/xpart"
+    Speed 5
+    States
+    {
+    Spawn:
+        PLHD A 0 
+        PLHD A 0 ThrustThingZ (0, 45, 0, 1)
+        goto See 
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        PLHD A 5 A_Custommissile("Blood", -5,0,0)
+        PLHD B 5 ThrustThingZ(0,6,1,1)
+        PLHD CD 5 
+        PLHD ABCD 5 //A_Fadeout(0.1)
+        loop
+    Death:
+        PLHD C 0 A_Jump (16,4)
+        PLHD C 0 A_Jump (32,4)
+        PLHD C 0 A_Jump (64,4)
+        PLHD C 0 A_Jump (128,4)
+        PLHD A -1
+        Stop
+        PLHD B -1
+        Stop
+        PLHD C -1
+        Stop
+        PLHD D -1
+        Stop
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+actor PLAYERBOOT
+{
+	 renderstyle translucent
+	alpha 1.0
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    -SOLID
+	-TELESTOMP
+    Radius 3
+    Damage 0
+    Decal BloodSplat
+    bouncefactor 0.4
+    SeeSound "gibbage/xpart"
+    Speed 5
+    States
+    {
+    Spawn:
+        PLG1 A 0 
+        PLG1 A 0 ThrustThingZ (0, 45, 0, 1)
+        goto See 
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        PLG1 A 5 A_Custommissile("Blood", -5,0,0)
+        PLG1 B 5 ThrustThingZ(0,6,1,1)
+        PLG1 C 5 
+        PLG1 ABC 5 A_Fadeout(0.1)
+        loop
+    Death:
+        PLG1 C 0 A_Jump (128,3)
+        PLG1 C 0 A_Jump (128,3)
+        PLG1 C 0 A_Jump (128,3)
+        PLG1 A -1 
+        Stop
+        PLG1 B -1 
+        Stop
+        PLG1 C -1 
+        Stop   
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+// Gibs that go SPLAT instead of bounce.
+
+actor GIB1SPLAT : GIB1
+{
+	-DOOMBOUNCE
+	-TELESTOMP
+    States
+    {
+    Spawn:
+        GIB1 A 0
+        goto See
+    Death:
+        GIB1 A 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 4 A_PlaySound("gibbage/xgibst")
+        SPLT BCD 4
+        SPLT D 2000
+        Stop        
+    }
+}
+
+actor GIB2SPLAT : GIB2
+{
+	-DOOMBOUNCE
+	-TELESTOMP
+    States
+    {
+        Spawn:
+        GIB1 A 0
+        goto See
+    Death:
+        GIB1 A 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 4 A_PlaySound("gibbage/xgibst")
+        SPLT BCD 4
+        SPLT D 2000
+        Stop        
+    }
+}
+
+actor GIB3SPLAT : GIB3
+{
+	-DOOMBOUNCE
+	-TELESTOMP
+    States
+    {
+        Spawn:
+        GIB1 A 0
+        goto See
+    Death:
+        GIB1 A 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 4 A_PlaySound("gibbage/xgibst")
+        SPLT BCD 4
+        SPLT D 2000
+        Stop        
+    }
+}
+
+actor GIB4SPLAT : GIB4
+{
+	-DOOMBOUNCE
+	-TELESTOMP
+    States
+    {
+        Spawn:
+        GIB1 A 0
+        goto See
+    Death:
+        GIB1 A 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 4 A_PlaySound("gibbage/xgibst")
+        SPLT BCD 4
+        SPLT D 2000
+        Stop        
+    }
+}
+
+actor GIB5SPLAT : GIB5
+{
+	-DOOMBOUNCE
+	-TELESTOMP
+    States
+    {
+        Spawn:
+        GIB1 A 0
+        goto See
+    Death:
+        GIB1 A 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 0 A_SpawnItem("Blood")
+        SPLT A 4 A_PlaySound("gibbage/xgibst")
+        SPLT BCD 4
+        SPLT D 2000
+        Stop        
+    }
+}
+
+
+ACTOR Custom_BloodySkull : PlayerChunk
+{
+	Radius 4
+	Height 4
+	+DOOMBOUNCE
+	+NOBLOCKMAP
+	+DROPOFF
+	PROJECTILE
+	+CANNOTPUSH
+	+SKYEXPLODE
+	-TELESTOMP
+	+NOBLOCKMONST
+	+NOSKIN
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    -EXPLODEONWATER
+    +CANBOUNCEWATER 
+    +DONTTRANSLATE // Enough flags?
+    SeeSound "gibbage/xpart"
+	States
+	{
+    Spawn:
+        PLHD A 0 ThrustThingZ (0, 45, 0, 1)
+        goto See 
+       See:
+        PLHD A 5 A_Custommissile("Blood", -5,0,0)
+        PLHD BCD 5 
+        PLHD ABCD 5 
+        loop
+       Death:
+	PLHD C 0 A_Jump (16,4)
+        PLHD C 0 A_Jump (32,4)
+        PLHD C 0 A_Jump (64,4)
+        PLHD C 0 A_Jump (128,4)
+        PLHD A -1 A_CheckPlayerDone
+        Wait
+        PLHD B -1 A_CheckPlayerDone
+        Wait
+        PLHD C -1 A_CheckPlayerDone
+        Wait
+        PLHD D -1 A_CheckPlayerDone
+	}
+}
+
+ACTOR Custom_BloodySkull2 : Custom_BloodySkull
+{
+	States
+	{
+    Spawn:
+        HUNT Z 0 ThrustThingZ (0, 45, 0, 1)
+        goto See 
+       See:
+        HUNT Z 5 A_Custommissile("Blood", -5,0,0)
+        HUNT ZZZ 5 
+        HUNT ZZZZ 5 
+        loop
+       Death:
+	HUNT Z 0 A_Jump (16,4)
+        HUNT Z 0 A_Jump (32,4)
+        HUNT Z 0 A_Jump (64,4)
+        HUNT Z 0 A_Jump (128,4)
+        HUNT Z -1 A_CheckPlayerDone
+        Wait
+        HUNT Z -1 A_CheckPlayerDone
+        Wait
+        HUNT Z -1 A_CheckPlayerDone
+        Wait
+        HUNT Z -1 A_CheckPlayerDone
+	}
+}
+
+Actor Custom_BloodySkullPW : Custom_BloodySkull
+{
+	States
+	{
+    Spawn:
+        TNT1 A 0 ThrustThingZ (0, 45, 0, 1)
+        goto See 
+       See:
+        ZHRH A 5 A_Custommissile("Blood", -5,0,0)
+        ZHRH AAA 35
+        loop
+       Death:
+		TNT1 A 0 A_Jump (16,4)
+        TNT1 A 0 A_Jump (32,4)
+        TNT1 A 0 A_Jump (64,4)
+        TNT1 A 0 A_Jump (128,4)
+        ZHRH A -1 A_CheckPlayerDone
+        Wait
+        ZHRH A -1 A_CheckPlayerDone
+        Wait
+        ZHRH A -1 A_CheckPlayerDone
+        Wait
+        ZHRH A -1 A_CheckPlayerDone
+	}
+}
+
+Actor CYBJUNK1
+{
+    +DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -TELESTOMP
+    -NOTELEPORT
+    -SOLID
+    Radius 2
+    Damage 0
+    Decal None
+    bouncefactor 0.4
+    SeeSound "gibbage/cyborg"
+    Speed 5
+	renderstyle translucent
+	alpha 1.0
+    States
+    {
+    Spawn:
+        JUNK A 0
+        JUNK A 0 ThrustThingZ (0, 5, 0, 1)
+        goto See
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        JUNK A 5
+        JUNK A 5 ThrustThingZ(0,6,1,1) 
+        JUNK A 5 //A_FadeOut(0.05)
+        loop
+    Death:
+        JUNK A 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        JUNK A 200
+        Stop
+				   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+Actor CYBJUNK2 : CYBJUNK1
+{
+    States
+    {
+    Spawn:
+        JUNK B 0
+        JUNK B 0 ThrustThingZ (0, 5, 0, 1)
+        goto See
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        JUNK B 5
+        JUNK B 5 ThrustThingZ(0,6,1,1) 
+        JUNK B 5 //A_FadeOut(0.05)
+        loop
+    Death:
+        JUNK B 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        JUNK B 200
+        Stop
+				   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+Actor CYBJUNK3 : CYBJUNK1
+{
+    States
+    {
+    Spawn:
+        JUNK C 0
+        JUNK C 0 ThrustThingZ (0, 5, 0, 1)
+        goto See
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        JUNK C 5
+        JUNK C 5 ThrustThingZ(0,6,1,1) 
+        JUNK C 5 //A_FadeOut(0.05)
+        loop
+    Death:
+        JUNK C 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        JUNK C 200
+        Stop
+				   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+Actor CYBJUNK4 : CYBJUNK1
+{
+    States
+    {
+    Spawn:
+        JUNK D 0
+        JUNK D 0 ThrustThingZ (0, 5, 0, 1)
+        goto See
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        JUNK D 5
+        JUNK D 5 ThrustThingZ(0,6,1,1) 
+        JUNK D 5 //A_FadeOut(0.05)
+        loop
+    Death:
+        JUNK D 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        JUNK D 200
+        Stop
+				   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+Actor CYBJUNK5 : CYBJUNK1
+{
+    States
+    {
+    Spawn:
+        JUNK E 0
+        JUNK E 0 ThrustThingZ (0, 5, 0, 1)
+        goto See
+    See:
+	NULL A 0 A_JumpIf(waterlevel > 1, "Remove")
+        JUNK E 5
+        JUNK E 5 ThrustThingZ(0,6,1,1) 
+        JUNK E 5 //A_FadeOut(0.05)
+        loop
+    Death:
+        JUNK E 0 A_ChangeFlag(NOBLOCKMAP, 0)
+        JUNK E 200
+        Stop
+				   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+actor CYBGIBBER
+{
+  radius 20
+  height 56
+  +NOCLIP
+  -TELESTOMP
+  States
+  {
+  Spawn:
+        NULL A 0
+        NULL A 0 A_PlaySound("gibbage/cyborg")
+        NULL A 1 A_SpawnItemEx ("GIB1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 0 A_SpawnItemEx ("GIB5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), random(80, 160), 0)
+        NULL A 1 A_SpawnItemEx ("CYBJUNK1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 1 A_SpawnItemEx ("CYBJUNK1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 1 A_SpawnItemEx ("CYBJUNK1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 1 A_SpawnItemEx ("CYBJUNK1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 1 A_SpawnItemEx ("CYBJUNK1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 1 A_SpawnItemEx ("CYBJUNK1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 1 A_SpawnItemEx ("CYBJUNK1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 1 A_SpawnItemEx ("CYBJUNK1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 1 A_SpawnItemEx ("CYBJUNK1", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK2", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK3", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK4", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        NULL A 0 A_SpawnItemEx ("CYBJUNK5", 1, 1, random(8,32), random(0,5), random(0,5), random(8,18), random(0,360), 161, 0)
+        Stop
+    }
+}
+
+ACTOR Custom_BloodySkull3 : Custom_BloodySkull
+{
+	States
+	{
+    Spawn:
+        ROB1 Z 0 ThrustThingZ (0, 45, 0, 1)
+        goto See 
+       See:
+        ROB1 Z 5 A_Custommissile("Blood", -5,0,0)
+        ROB1 ZZZ 5 
+        ROB1 ZZZZ 5 
+        loop
+       Death:
+		ROB1 Z 0 A_Jump (16,4)
+        ROB1 Z 0 A_Jump (32,4)
+        ROB1 Z 0 A_Jump (64,4)
+        ROB1 Z 0 A_Jump (128,4)
+        ROB1 Z -1 A_CheckPlayerDone
+        Wait
+        ROB1 Z -1 A_CheckPlayerDone
+        Wait
+        ROB1 Z -1 A_CheckPlayerDone
+        Wait
+        ROB1 Z -1 A_CheckPlayerDone
+	}
+}
+
+actor jitterchip
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +ALLOWPARTICLES
+  +RANDOMIZE
+  -TELESTOMP
+  +CLIENTSIDEONLY
+  RenderStyle Translucent
+  Alpha 0.5
+  renderstyle none
+  VSpeed 1
+  Mass 5
+  States
+  {
+  Spawn:
+  PUFF A 0
+  PUFF A 0 A_PlaySoundEx("jitpain", "Body")
+  PUFF A 0 A_SpawnItemEx("jitterchip2",0,0,0,0,0,0,0,1,0)
+    PUFF A 4 bright
+    PUFF B 4
+    // Intentional fall-through
+  Melee:
+    PUFF CD 4
+    stop
+  }
+}
+
+actor jitterchip2
+{
+	 renderstyle translucent
+	alpha 1.0
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+	+RIPPER
+	scale 0.4
+	+DOOMBOUNCE
+	+BOUNCEONACTORS
+	+BLOODLESSIMPACT
+	bouncefactor 0.1
+    -SOLID
+	-TELESTOMP
+	reactiontime 35
+	+CLIENTSIDEONLY
+    Radius 3
+    Damage 0
+    bouncefactor 0.4
+    SeeSound "skullchips"
+    States
+    {
+    Spawn:
+        JCHP A 0 
+        JCHP A 0 ThrustThingZ (0, 45, 0, 1)
+        goto See 
+    See:
+	NULL A 0 ThrustThing(random(0,255), 4, 0, 0)
+	NULL A 0 A_Jump(128, 6)
+	NULL A 0 A_Jump(128, 4)
+	NULL A 0 A_Jump(128, 5)
+        JCHP A 4 A_JumpIf(waterlevel > 1, "Remove")
+        JCHP B 4 ThrustThingZ(0,random(1,6),1,1)
+		JCHP CDE 4 A_Countdown
+		Goto See+2
+    Death:
+        JCHP C 0 A_Jump (128,4)
+        JCHP C 0 A_Jump (128,6)
+        JCHP A 20
+		JCHP A 3 A_FadeOut(0.01)
+        Goto Death+3
+        JCHP B 20
+		JCHP B 3 A_FadeOut(0.01)
+        Goto Death+5
+        JCHP C 20
+		JCHP C 3 A_FadeOut(0.01)
+        Goto Death+7
+		   Remove: // Anti-Lag - Removes blood in water.
+      NULL A 0 
+        stop
+    }
+}
+
+Actor RandomCyborgChunk
+{
+	Radius 1
+	Height 1
+    Radius 2
+    Damage 0
+    Decal None
+    BounceFactor 0.4
+    SeeSound "gibbage/cyborg"
+    Speed 5
+	Renderstyle Translucent
+	Alpha 1.0
+	+DOOMBOUNCE
+    PROJECTILE
+    -NOGRAVITY
+    -TELESTOMP
+    -NOTELEPORT
+    -SOLID
+	States
+	{	
+	Spawn:
+		NULL A 0
+		NULL A 1 A_Jump(256, 1, 2, 3, 4, 5)
+		NULL A 0 A_SpawnItemEx("CYBJUNK1", 0, 0, 0, random(-5,5), random(-5,5), random(-5,5))
+		Goto Death 
+		NULL A 0 A_SpawnItemEx("CYBJUNK2", 0, 0, 0, random(-5,5), random(-5,5), random(-5,5))
+		Goto Death
+		NULL A 0 A_SpawnItemEx("CYBJUNK3", 0, 0, 0, random(-5,5), random(-5,5), random(-5,5))
+		Goto Death
+		NULL A 0 A_SpawnItemEx("CYBJUNK4", 0, 0, 0, random(-5,5), random(-5,5), random(-5,5))
+		Goto Death
+		NULL A 0 A_SpawnItemEx("CYBJUNK5", 0, 0, 0, random(-5,5), random(-5,5), random(-5,5))
+		Goto Death
+	Death:
+		NULL A 0
+		Stop
+	}
+}
+
+Actor CyborgExplosion
+{
+	Radius 8
+	Height 8
+	Scale 0.8
+	PROJECTILE
+	+NOCLIP
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+        MISL B 2
+        MISL B 2 Bright A_PlaySound("weapons/rocklx")
+        MISL B 4 Bright
+        MISL C 6
+        MISL D 4
+		Stop
+	}
+}
