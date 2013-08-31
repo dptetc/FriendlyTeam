@@ -98,3 +98,16 @@ script 302 OPEN
 		consolecommand("hud_scale 1");
 	}
 }
+
+script 305 ENTER
+{
+	If (GameType() != GAME_SINGLE_PLAYER)
+	{
+		Delay(0);
+	}
+	else
+	{
+		//GiveInventory("MegaSphere",9999999999999999999999999);
+		Terminate;
+	}
+}

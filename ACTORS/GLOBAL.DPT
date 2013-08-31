@@ -3081,3 +3081,392 @@ Actor CyborgExplosion
 		Stop
 	}
 }
+
+Actor SingleMarineBOT_Spawner
+{
+	Radius 5
+	Height 5 
+	scale 0.35
+	states
+	{
+	Spawn:
+		TLMP A 4 
+		TLMP A 50 bright
+		TLMP A 14 A_SpawnItemEx("MarineNPC",0,0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		TLMP A 5 A_FadeOut(0.1)
+		Stop
+	}
+}
+
+ACTOR MarineNPC
+{
+	Health 300
+	PainChance 0
+	Speed 14
+	Radius 24
+	Height 64
+	Mass 470
+	Monster
+	+FRIENDLY
+	+FLOORCLIP
+	+NEVERRESPAWN
+	MinMissileChance 150
+	DeathSound "PlayerDies"
+	Decal "BulletChip"
+	//Obituary "%o <<<<<"
+	States
+	{
+	Spawn:
+		PLAY A 15 A_Look
+		PLAY BCDBCD 5 A_Wander
+		PLAY A 15 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_Jump(126, "MovingForward", "leftStrafe", "RightStrafe", "MovingBackWard")
+		PLAY BCDE 5 A_FastChase
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY B 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY B 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY C 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY C 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY C 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY D 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY D 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		Goto See
+	MovingForward:
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY B 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY B 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY C 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY C 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY D 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY D 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY B 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY B 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY C 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY C 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY D 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY D 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY B 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY B 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY C 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY C 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY D 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY D 2 A_Recoil(-2.5)
+		PLAY A 0 A_FaceTarget
+		Goto See
+	LeftStrafe:
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-1.6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY B 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY B 2 A_Recoil(-1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY B 2 A_Recoil(-1.6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY C 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY C 2 A_Recoil(-1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY C 2 A_Recoil(-1.6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY D 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY D 2 A_Recoil(-1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY D 2 A_Recoil(-1.6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 1 A_Jump(176, "MovingBackward") 
+		Goto See
+	RightStrafe:
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY A 2 A_Recoil(-1.6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY B 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY B 2 A_Recoil(-1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY B 2 A_Recoil(-1.6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY C 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY C 2 A_Recoil(-1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY C 2 A_Recoil(-1.6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY D 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY D 2 A_Recoil(-1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_FastChase
+		PLAY D 2 A_Recoil(-1.6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 1 A_Jump(176, "MovingBackward") 
+		Goto See
+	MovingBackward:
+		PLAY A 2 A_Recoil(1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 2 A_Recoil(1.1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_FastChase
+		PLAY B 2 A_Recoil(1)
+		PLAY A 0 A_FaceTarget
+		PLAY B 2 A_Recoil(1.1)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*180/360-0, 1, 0, 0)
+		Goto See
+	Missile:
+		PLAY A 0 A_Chase
+		PLAY AAAA 1 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY A 3 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY A 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY F 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY F 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY F 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY F 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY G 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY F 2 A_FaceTarget
+		PLAY A 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY F 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY F 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 3 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY F 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY F 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY G 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY G 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY F 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY F 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY G 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY F 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY G 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 2 A_Recoil(-2)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY F 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY G 2 A_Recoil(-2)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 2 A_Recoil(-6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_Chase
+		PLAY A 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY F 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY G 2 A_Recoil(-5)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*90/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 2 A_Recoil(-6)
+		PLAY A 0 A_FaceTarget
+		PLAY A 0 A_PlaySound("Weapons/MP5KFIR")
+		PLAY F 0 BRIGHT A_CustomBulletAttack(8.52, 8, 1, 15, "BulletPuff")
+		PLAY G 2 A_Recoil(-6)
+		PLAY B 0 A_FaceTarget
+		PLAY A 0 ThrustThing(angle*270/360-0, 1, 0, 0)
+		PLAY A 0 A_Chase
+		PLAY E 2 A_Recoil(-6)
+		PLAY A 0 A_FaceTarget
+		Goto See
+	Pain:
+		PLAY H 8 A_Pain
+		Goto See
+	Death:
+		PLAY I 5
+		PLAY J 5 A_Scream
+		PLAY K 5
+		PLAY L 5 A_NoBlocking
+		PLAY M -1
+		Stop
+	XDeath:
+		Stop
+	}
+}
+
+Actor MarineNPC_Evil : MarineNPC
+{
+	-FRIENDLY
+}
